@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Module: util &mdash; cesium 0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/output_cells.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="cesium 0.2 documentation" href="../index.html"/>
+        <link rel="up" title="API Reference" href="api.html"/>
+        <link rel="prev" title="Module: science_features" href="cesium.science_features.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cesium
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cesium.html"><code class="docutils literal"><span class="pre">cesium</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html">Module: <code class="docutils literal"><span class="pre">build_model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html">Module: <code class="docutils literal"><span class="pre">obs_feature_tools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_feature_tools.html">Module: <code class="docutils literal"><span class="pre">science_feature_tools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html">Module: <code class="docutils literal"><span class="pre">science_features</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Module: <code class="docutils literal"><span class="pre">util</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#check-model-param-types">check_model_param_types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-images-available">docker_images_available</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extract-time-series">extract_time_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-docker-client">get_docker_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#is-running-in-docker">is_running_in_docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#make-list">make_list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remove-files">remove_files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#robust-literal-eval">robust_literal_eval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shorten-fname">shorten_fname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#warn-defaultdict"><code class="docutils literal"><span class="pre">warn_defaultdict</span></code></a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">cesium</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="api.html">API Reference</a> &raquo;</li>
+      
+    <li>Module: <code class="docutils literal"><span class="pre">util</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cesium.util">
+<span id="module-util"></span><h1>Module: <code class="xref py py-mod docutils literal"><span class="pre">util</span></code><a class="headerlink" href="#module-cesium.util" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.util.check_model_param_types" title="cesium.util.check_model_param_types"><code class="xref py py-obj docutils literal"><span class="pre">cesium.util.check_model_param_types</span></code></a>(...[,&nbsp;...])</td>
+<td>Cast model parameter strings to expected types.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.util.docker_images_available" title="cesium.util.docker_images_available"><code class="xref py py-obj docutils literal"><span class="pre">cesium.util.docker_images_available</span></code></a>()</td>
+<td>Return boolean indicating whether Docker images are present.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.util.extract_time_series" title="cesium.util.extract_time_series"><code class="xref py py-obj docutils literal"><span class="pre">cesium.util.extract_time_series</span></code></a>(data_path[,&nbsp;...])</td>
+<td>Extract zip- or tarfile of time series file and return file paths.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.util.get_docker_client" title="cesium.util.get_docker_client"><code class="xref py py-obj docutils literal"><span class="pre">cesium.util.get_docker_client</span></code></a>([version])</td>
+<td>Connect to Docker if available and return a client.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.util.is_running_in_docker" title="cesium.util.is_running_in_docker"><code class="xref py py-obj docutils literal"><span class="pre">cesium.util.is_running_in_docker</span></code></a>()</td>
+<td>Return bool indicating whether running in a Docker container.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.util.make_list" title="cesium.util.make_list"><code class="xref py py-obj docutils literal"><span class="pre">cesium.util.make_list</span></code></a>(x)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.util.remove_files" title="cesium.util.remove_files"><code class="xref py py-obj docutils literal"><span class="pre">cesium.util.remove_files</span></code></a>(paths)</td>
+<td>Remove specified files from disk.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.util.robust_literal_eval" title="cesium.util.robust_literal_eval"><code class="xref py py-obj docutils literal"><span class="pre">cesium.util.robust_literal_eval</span></code></a>(val)</td>
+<td>Call <cite>ast.literal_eval</cite> without raising <cite>ValueError</cite>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.util.shorten_fname" title="cesium.util.shorten_fname"><code class="xref py py-obj docutils literal"><span class="pre">cesium.util.shorten_fname</span></code></a>(file_path)</td>
+<td>Extract the name of a file (omitting directory names and extensions).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.util.warn_defaultdict" title="cesium.util.warn_defaultdict"><code class="xref py py-obj docutils literal"><span class="pre">cesium.util.warn_defaultdict</span></code></a></td>
+<td>A recursive <cite>collections.defaultdict</cite>, but with printed warnings when an item is not found.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="check-model-param-types">
+<h2>check_model_param_types<a class="headerlink" href="#check-model-param-types" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.util.check_model_param_types">
+<code class="descclassname">cesium.util.</code><code class="descname">check_model_param_types</code><span class="sig-paren">(</span><em>model_type</em>, <em>model_params</em>, <em>all_as_lists=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.check_model_param_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cast model parameter strings to expected types.</p>
+<p>Modifies <cite>model_params</cite> dict in place.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>model_type</strong> : str</p>
+<blockquote>
+<div><p>Name of model.</p>
+</div></blockquote>
+<p><strong>model_params</strong> : dict</p>
+<blockquote>
+<div><p>Dictionary containing model parameters to be checked against expected
+types.</p>
+</div></blockquote>
+<p><strong>all_as_lists</strong> : bool, optional</p>
+<blockquote>
+<div><p>Boolean indicating whether <cite>model_params</cite> values are wrapped in lists,
+as in the case of parameter grids for optimization.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>ValueError</strong></p>
+<blockquote class="last">
+<div><p>Raises ValueError if parameter(s) are not of expected type.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="docker-images-available">
+<h2>docker_images_available<a class="headerlink" href="#docker-images-available" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.util.docker_images_available">
+<code class="descclassname">cesium.util.</code><code class="descname">docker_images_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.docker_images_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return boolean indicating whether Docker images are present.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="extract-time-series">
+<h2>extract_time_series<a class="headerlink" href="#extract-time-series" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.util.extract_time_series">
+<code class="descclassname">cesium.util.</code><code class="descname">extract_time_series</code><span class="sig-paren">(</span><em>data_path</em>, <em>cleanup_archive=True</em>, <em>cleanup_files=False</em>, <em>extract_dir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.extract_time_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract zip- or tarfile of time series file and return file paths.</p>
+<p>If the given file is not a tar- or zipfile then it is treated as a single
+time series filepath.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data_path</strong> : str</p>
+<blockquote>
+<div><p>Path to data archive or single data file.</p>
+</div></blockquote>
+<p><strong>cleanup_archive</strong> : bool, optional</p>
+<blockquote>
+<div><p>Boolean specifying whether to delete the original archive (if
+applicable). Defaults to True.</p>
+</div></blockquote>
+<p><strong>cleanup_files</strong> : bool, optional</p>
+<blockquote>
+<div><p>Boolean specifying whether to delete the extracted files when exiting
+the given context. Defaults to False.</p>
+</div></blockquote>
+<p><strong>extract_dir</strong> : str, optional</p>
+<blockquote>
+<div><p>Directory into which files are to be extracted (if applicable). If
+None, a temporary directory is created.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Yields:</th><td class="field-body"><p class="first">list of str</p>
+<blockquote class="last">
+<div><p>List of full paths to time series files.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="get-docker-client">
+<h2>get_docker_client<a class="headerlink" href="#get-docker-client" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.util.get_docker_client">
+<code class="descclassname">cesium.util.</code><code class="descname">get_docker_client</code><span class="sig-paren">(</span><em>version='1.14'</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.get_docker_client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to Docker if available and return a client.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>version</strong> : str, optional</p>
+<blockquote>
+<div><p>Protocol version.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">docker.Client</p>
+<blockquote>
+<div><p>Docker client.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>RuntimeError</strong></p>
+<blockquote class="last">
+<div><p>If Docker cannot be contacted or contains no images.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="is-running-in-docker">
+<h2>is_running_in_docker<a class="headerlink" href="#is-running-in-docker" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.util.is_running_in_docker">
+<code class="descclassname">cesium.util.</code><code class="descname">is_running_in_docker</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.is_running_in_docker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return bool indicating whether running in a Docker container.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="make-list">
+<h2>make_list<a class="headerlink" href="#make-list" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.util.make_list">
+<code class="descclassname">cesium.util.</code><code class="descname">make_list</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.make_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="remove-files">
+<h2>remove_files<a class="headerlink" href="#remove-files" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.util.remove_files">
+<code class="descclassname">cesium.util.</code><code class="descname">remove_files</code><span class="sig-paren">(</span><em>paths</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.remove_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove specified files from disk.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="robust-literal-eval">
+<h2>robust_literal_eval<a class="headerlink" href="#robust-literal-eval" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.util.robust_literal_eval">
+<code class="descclassname">cesium.util.</code><code class="descname">robust_literal_eval</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.robust_literal_eval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call <cite>ast.literal_eval</cite> without raising <cite>ValueError</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>val</strong> : str</p>
+<blockquote>
+<div><p>String literal to be evaluated.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Output of <cite>ast.literal_eval(val)&#8217;, or `val</cite> if <cite>ValueError</cite> was raised.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="shorten-fname">
+<h2>shorten_fname<a class="headerlink" href="#shorten-fname" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.util.shorten_fname">
+<code class="descclassname">cesium.util.</code><code class="descname">shorten_fname</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.shorten_fname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the name of a file (omitting directory names and extensions).</p>
+</dd></dl>
+
+</div>
+<div class="section" id="warn-defaultdict">
+<h2><a class="reference internal" href="#cesium.util.warn_defaultdict" title="cesium.util.warn_defaultdict"><code class="xref py py-class docutils literal"><span class="pre">warn_defaultdict</span></code></a><a class="headerlink" href="#warn-defaultdict" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cesium.util.warn_defaultdict">
+<em class="property">class </em><code class="descclassname">cesium.util.</code><code class="descname">warn_defaultdict</code><a class="headerlink" href="#cesium.util.warn_defaultdict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<p>A recursive <cite>collections.defaultdict</cite>, but with printed warnings when
+an item is not found.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">warn_defaultdict</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span>
+<span class="go">[config] WARNING: non-existent key &quot;2&quot; requested</span>
+<span class="go">[config] WARNING: non-existent key &quot;3&quot; requested</span>
+<span class="go">[config] WARNING: non-existent key &quot;4&quot; requested</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">warn_defaultdict</span><span class="p">({</span><span class="s1">&#39;sub&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">}})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;sub&#39;</span><span class="p">][</span><span class="s1">&#39;foo&#39;</span><span class="p">])</span>
+<span class="go">[config] WARNING: non-existent key &quot;foo&quot; requested</span>
+<span class="go">{}</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">clear</span></code>(()&nbsp;-&gt;&nbsp;None.&nbsp;&nbsp;Remove&nbsp;all&nbsp;items&nbsp;from&nbsp;D.)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code>(()&nbsp;-&gt;&nbsp;a&nbsp;shallow&nbsp;copy&nbsp;of&nbsp;D)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">fromkeys</span></code></td>
+<td>Returns a new dict with keys from iterable and values equal to value.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get</span></code>((k[,d])&nbsp;-&gt;&nbsp;D[k]&nbsp;if&nbsp;k&nbsp;in&nbsp;D,&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">items</span></code>(...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">keys</span></code>(...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">pop</span></code>((k[,d])&nbsp;-&gt;&nbsp;v,&nbsp;...)</td>
+<td>If key is not found, d is returned if given, otherwise KeyError is raised</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">popitem</span></code>(()&nbsp;-&gt;&nbsp;(k,&nbsp;v),&nbsp;...)</td>
+<td>2-tuple; but raise KeyError if D is empty.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">setdefault</span></code>((k[,d])&nbsp;-&gt;&nbsp;D.get(k,d),&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.util.warn_defaultdict.update" title="cesium.util.warn_defaultdict.update"><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></a>(other)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">values</span></code>(...)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cesium.util.warn_defaultdict.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.warn_defaultdict.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cesium.util.warn_defaultdict.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.warn_defaultdict.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="cesium.science_features.html" class="btn btn-neutral" title="Module: science_features" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, The cesium Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Reference &mdash; cesium 0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/output_cells.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="cesium 0.2 documentation" href="../index.html"/>
+        <link rel="next" title="cesium" href="cesium.html"/>
+        <link rel="prev" title="Examples" href="../examples.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cesium
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.html"><code class="docutils literal"><span class="pre">cesium</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html">Module: <code class="docutils literal"><span class="pre">build_model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html">Module: <code class="docutils literal"><span class="pre">obs_feature_tools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_feature_tools.html">Module: <code class="docutils literal"><span class="pre">science_feature_tools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html">Module: <code class="docutils literal"><span class="pre">science_features</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html">Module: <code class="docutils literal"><span class="pre">util</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">cesium</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cesium.html"><code class="docutils literal"><span class="pre">cesium</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.html#install">install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cesium.build_model.html">Module: <code class="docutils literal"><span class="pre">build_model</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html#build-model-from-featureset">build_model_from_featureset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html#create-and-pickle-model">create_and_pickle_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html#fit-model-optimize-hyperparams">fit_model_optimize_hyperparams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html#rectangularize-featureset">rectangularize_featureset</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cesium.obs_feature_tools.html">Module: <code class="docutils literal"><span class="pre">obs_feature_tools</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html#cad-prob">cad_prob</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html#delta-t-hist">delta_t_hist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html#double-to-single-step">double_to_single_step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html#find-sorted-peaks">find_sorted_peaks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html#generate-obs-features">generate_obs_features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html#normalize-hist">normalize_hist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html#peak-bin">peak_bin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html#peak-ratio">peak_ratio</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cesium.science_feature_tools.html">Module: <code class="docutils literal"><span class="pre">science_feature_tools</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_feature_tools.html#generate-science-features">generate_science_features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cesium.science_features.html">Module: <code class="docutils literal"><span class="pre">science_features</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#amplitude">amplitude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#flux-percentile-ratio">flux_percentile_ratio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-fold2p-slope-percentile">get_fold2P_slope_percentile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-lomb-amplitude">get_lomb_amplitude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-lomb-amplitude-ratio">get_lomb_amplitude_ratio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-lomb-frequency">get_lomb_frequency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-lomb-frequency-ratio">get_lomb_frequency_ratio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-lomb-lambda">get_lomb_lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-lomb-rel-phase">get_lomb_rel_phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-lomb-signif">get_lomb_signif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-lomb-signif-ratio">get_lomb_signif_ratio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-lomb-trend">get_lomb_trend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-lomb-varrat">get_lomb_varrat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-lomb-y-offset">get_lomb_y_offset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-max-delta-mags">get_max_delta_mags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-medperc90-2p-p">get_medperc90_2p_p</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-min-delta-mags">get_min_delta_mags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-model-phi1-phi2">get_model_phi1_phi2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-p2p-scatter-2praw">get_p2p_scatter_2praw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-p2p-scatter-over-mad">get_p2p_scatter_over_mad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-p2p-scatter-pfold-over-mad">get_p2p_scatter_pfold_over_mad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-p2p-ssqr-diff-over-var">get_p2p_ssqr_diff_over_var</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-qso-log-chi2-qsonu">get_qso_log_chi2_qsonu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#get-qso-log-chi2nunull-chi2nu">get_qso_log_chi2nuNULL_chi2nu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#lomb-scargle-fast-period">lomb_scargle_fast_period</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#lomb-scargle-model">lomb_scargle_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#max-slope">max_slope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#maximum">maximum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#median">median</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#median-absolute-deviation">median_absolute_deviation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#minimum">minimum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#num-alias">num_alias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#p2p-model">p2p_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#percent-amplitude">percent_amplitude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#percent-beyond-1-std">percent_beyond_1_std</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#percent-close-to-median">percent_close_to_median</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#percent-difference-flux-percentile">percent_difference_flux_percentile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#period-folding">period_folding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#periodic-model">periodic_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#qso-fit">qso_fit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#scatter-res-raw">scatter_res_raw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#skew">skew</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#std">std</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#stetson-j">stetson_j</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#stetson-k">stetson_k</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html#weighted-average">weighted_average</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cesium.util.html">Module: <code class="docutils literal"><span class="pre">util</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#check-model-param-types">check_model_param_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#docker-images-available">docker_images_available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#extract-time-series">extract_time_series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#get-docker-client">get_docker_client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#is-running-in-docker">is_running_in_docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#make-list">make_list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#remove-files">remove_files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#robust-literal-eval">robust_literal_eval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#shorten-fname">shorten_fname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#warn-defaultdict"><code class="docutils literal"><span class="pre">warn_defaultdict</span></code></a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cesium.html" class="btn btn-neutral float-right" title="cesium" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../examples.html" class="btn btn-neutral" title="Examples" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, The cesium Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

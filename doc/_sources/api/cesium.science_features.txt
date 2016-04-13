@@ -1,0 +1,287 @@
+.. AUTO-GENERATED FILE -- DO NOT EDIT!
+
+Module: :mod:`science_features`
+===============================
+.. automodule:: cesium.science_features
+
+.. currentmodule:: cesium.science_features
+.. autosummary::
+
+   cesium.science_features.amplitude
+   cesium.science_features.flux_percentile_ratio
+   cesium.science_features.get_fold2P_slope_percentile
+   cesium.science_features.get_lomb_amplitude
+   cesium.science_features.get_lomb_amplitude_ratio
+   cesium.science_features.get_lomb_frequency
+   cesium.science_features.get_lomb_frequency_ratio
+   cesium.science_features.get_lomb_lambda
+   cesium.science_features.get_lomb_rel_phase
+   cesium.science_features.get_lomb_signif
+   cesium.science_features.get_lomb_signif_ratio
+   cesium.science_features.get_lomb_trend
+   cesium.science_features.get_lomb_varrat
+   cesium.science_features.get_lomb_y_offset
+   cesium.science_features.get_max_delta_mags
+   cesium.science_features.get_medperc90_2p_p
+   cesium.science_features.get_min_delta_mags
+   cesium.science_features.get_model_phi1_phi2
+   cesium.science_features.get_p2p_scatter_2praw
+   cesium.science_features.get_p2p_scatter_over_mad
+   cesium.science_features.get_p2p_scatter_pfold_over_mad
+   cesium.science_features.get_p2p_ssqr_diff_over_var
+   cesium.science_features.get_qso_log_chi2_qsonu
+   cesium.science_features.get_qso_log_chi2nuNULL_chi2nu
+   cesium.science_features.lomb_scargle_fast_period
+   cesium.science_features.lomb_scargle_model
+   cesium.science_features.max_slope
+   cesium.science_features.maximum
+   cesium.science_features.median
+   cesium.science_features.median_absolute_deviation
+   cesium.science_features.minimum
+   cesium.science_features.num_alias
+   cesium.science_features.p2p_model
+   cesium.science_features.percent_amplitude
+   cesium.science_features.percent_beyond_1_std
+   cesium.science_features.percent_close_to_median
+   cesium.science_features.percent_difference_flux_percentile
+   cesium.science_features.period_folding
+   cesium.science_features.periodic_model
+   cesium.science_features.qso_fit
+   cesium.science_features.scatter_res_raw
+   cesium.science_features.skew
+   cesium.science_features.std
+   cesium.science_features.stetson_j
+   cesium.science_features.stetson_k
+   cesium.science_features.weighted_average
+
+
+amplitude
+---------
+
+.. autofunction:: cesium.science_features.amplitude
+
+flux_percentile_ratio
+---------------------
+
+.. autofunction:: cesium.science_features.flux_percentile_ratio
+
+get_fold2P_slope_percentile
+---------------------------
+
+.. autofunction:: cesium.science_features.get_fold2P_slope_percentile
+
+get_lomb_amplitude
+------------------
+
+.. autofunction:: cesium.science_features.get_lomb_amplitude
+
+get_lomb_amplitude_ratio
+------------------------
+
+.. autofunction:: cesium.science_features.get_lomb_amplitude_ratio
+
+get_lomb_frequency
+------------------
+
+.. autofunction:: cesium.science_features.get_lomb_frequency
+
+get_lomb_frequency_ratio
+------------------------
+
+.. autofunction:: cesium.science_features.get_lomb_frequency_ratio
+
+get_lomb_lambda
+---------------
+
+.. autofunction:: cesium.science_features.get_lomb_lambda
+
+get_lomb_rel_phase
+------------------
+
+.. autofunction:: cesium.science_features.get_lomb_rel_phase
+
+get_lomb_signif
+---------------
+
+.. autofunction:: cesium.science_features.get_lomb_signif
+
+get_lomb_signif_ratio
+---------------------
+
+.. autofunction:: cesium.science_features.get_lomb_signif_ratio
+
+get_lomb_trend
+--------------
+
+.. autofunction:: cesium.science_features.get_lomb_trend
+
+get_lomb_varrat
+---------------
+
+.. autofunction:: cesium.science_features.get_lomb_varrat
+
+get_lomb_y_offset
+-----------------
+
+.. autofunction:: cesium.science_features.get_lomb_y_offset
+
+get_max_delta_mags
+------------------
+
+.. autofunction:: cesium.science_features.get_max_delta_mags
+
+get_medperc90_2p_p
+------------------
+
+.. autofunction:: cesium.science_features.get_medperc90_2p_p
+
+get_min_delta_mags
+------------------
+
+.. autofunction:: cesium.science_features.get_min_delta_mags
+
+get_model_phi1_phi2
+-------------------
+
+.. autofunction:: cesium.science_features.get_model_phi1_phi2
+
+get_p2p_scatter_2praw
+---------------------
+
+.. autofunction:: cesium.science_features.get_p2p_scatter_2praw
+
+get_p2p_scatter_over_mad
+------------------------
+
+.. autofunction:: cesium.science_features.get_p2p_scatter_over_mad
+
+get_p2p_scatter_pfold_over_mad
+------------------------------
+
+.. autofunction:: cesium.science_features.get_p2p_scatter_pfold_over_mad
+
+get_p2p_ssqr_diff_over_var
+--------------------------
+
+.. autofunction:: cesium.science_features.get_p2p_ssqr_diff_over_var
+
+get_qso_log_chi2_qsonu
+----------------------
+
+.. autofunction:: cesium.science_features.get_qso_log_chi2_qsonu
+
+get_qso_log_chi2nuNULL_chi2nu
+-----------------------------
+
+.. autofunction:: cesium.science_features.get_qso_log_chi2nuNULL_chi2nu
+
+lomb_scargle_fast_period
+------------------------
+
+.. autofunction:: cesium.science_features.lomb_scargle_fast_period
+
+lomb_scargle_model
+------------------
+
+.. autofunction:: cesium.science_features.lomb_scargle_model
+
+max_slope
+---------
+
+.. autofunction:: cesium.science_features.max_slope
+
+maximum
+-------
+
+.. autofunction:: cesium.science_features.maximum
+
+median
+------
+
+.. autofunction:: cesium.science_features.median
+
+median_absolute_deviation
+-------------------------
+
+.. autofunction:: cesium.science_features.median_absolute_deviation
+
+minimum
+-------
+
+.. autofunction:: cesium.science_features.minimum
+
+num_alias
+---------
+
+.. autofunction:: cesium.science_features.num_alias
+
+p2p_model
+---------
+
+.. autofunction:: cesium.science_features.p2p_model
+
+percent_amplitude
+-----------------
+
+.. autofunction:: cesium.science_features.percent_amplitude
+
+percent_beyond_1_std
+--------------------
+
+.. autofunction:: cesium.science_features.percent_beyond_1_std
+
+percent_close_to_median
+-----------------------
+
+.. autofunction:: cesium.science_features.percent_close_to_median
+
+percent_difference_flux_percentile
+----------------------------------
+
+.. autofunction:: cesium.science_features.percent_difference_flux_percentile
+
+period_folding
+--------------
+
+.. autofunction:: cesium.science_features.period_folding
+
+periodic_model
+--------------
+
+.. autofunction:: cesium.science_features.periodic_model
+
+qso_fit
+-------
+
+.. autofunction:: cesium.science_features.qso_fit
+
+scatter_res_raw
+---------------
+
+.. autofunction:: cesium.science_features.scatter_res_raw
+
+skew
+----
+
+.. autofunction:: cesium.science_features.skew
+
+std
+---
+
+.. autofunction:: cesium.science_features.std
+
+stetson_j
+---------
+
+.. autofunction:: cesium.science_features.stetson_j
+
+stetson_k
+---------
+
+.. autofunction:: cesium.science_features.stetson_k
+
+weighted_average
+----------------
+
+.. autofunction:: cesium.science_features.weighted_average
+

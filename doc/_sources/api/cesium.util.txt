@@ -1,0 +1,77 @@
+.. AUTO-GENERATED FILE -- DO NOT EDIT!
+
+Module: :mod:`util`
+===================
+.. automodule:: cesium.util
+
+.. currentmodule:: cesium.util
+.. autosummary::
+
+   cesium.util.check_model_param_types
+   cesium.util.docker_images_available
+   cesium.util.extract_time_series
+   cesium.util.get_docker_client
+   cesium.util.is_running_in_docker
+   cesium.util.make_list
+   cesium.util.remove_files
+   cesium.util.robust_literal_eval
+   cesium.util.shorten_fname
+
+   cesium.util.warn_defaultdict
+
+check_model_param_types
+-----------------------
+
+.. autofunction:: cesium.util.check_model_param_types
+
+docker_images_available
+-----------------------
+
+.. autofunction:: cesium.util.docker_images_available
+
+extract_time_series
+-------------------
+
+.. autofunction:: cesium.util.extract_time_series
+
+get_docker_client
+-----------------
+
+.. autofunction:: cesium.util.get_docker_client
+
+is_running_in_docker
+--------------------
+
+.. autofunction:: cesium.util.is_running_in_docker
+
+make_list
+---------
+
+.. autofunction:: cesium.util.make_list
+
+remove_files
+------------
+
+.. autofunction:: cesium.util.remove_files
+
+robust_literal_eval
+-------------------
+
+.. autofunction:: cesium.util.robust_literal_eval
+
+shorten_fname
+-------------
+
+.. autofunction:: cesium.util.shorten_fname
+
+
+:class:`warn_defaultdict`
+-------------------------
+
+
+.. autoclass:: warn_defaultdict
+  :members:
+  :undoc-members:
+  :show-inheritance:
+
+  .. automethod:: __init__

@@ -1,0 +1,59 @@
+.. AUTO-GENERATED FILE -- DO NOT EDIT!
+
+Module: :mod:`obs_feature_tools`
+================================
+.. automodule:: cesium.obs_feature_tools
+
+.. currentmodule:: cesium.obs_feature_tools
+.. autosummary::
+
+   cesium.obs_feature_tools.cad_prob
+   cesium.obs_feature_tools.delta_t_hist
+   cesium.obs_feature_tools.double_to_single_step
+   cesium.obs_feature_tools.find_sorted_peaks
+   cesium.obs_feature_tools.generate_obs_features
+   cesium.obs_feature_tools.normalize_hist
+   cesium.obs_feature_tools.peak_bin
+   cesium.obs_feature_tools.peak_ratio
+
+
+cad_prob
+--------
+
+.. autofunction:: cesium.obs_feature_tools.cad_prob
+
+delta_t_hist
+------------
+
+.. autofunction:: cesium.obs_feature_tools.delta_t_hist
+
+double_to_single_step
+---------------------
+
+.. autofunction:: cesium.obs_feature_tools.double_to_single_step
+
+find_sorted_peaks
+-----------------
+
+.. autofunction:: cesium.obs_feature_tools.find_sorted_peaks
+
+generate_obs_features
+---------------------
+
+.. autofunction:: cesium.obs_feature_tools.generate_obs_features
+
+normalize_hist
+--------------
+
+.. autofunction:: cesium.obs_feature_tools.normalize_hist
+
+peak_bin
+--------
+
+.. autofunction:: cesium.obs_feature_tools.peak_bin
+
+peak_ratio
+----------
+
+.. autofunction:: cesium.obs_feature_tools.peak_ratio
+

@@ -1,0 +1,931 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Module: science_features &mdash; cesium 0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/output_cells.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="cesium 0.2 documentation" href="../index.html"/>
+        <link rel="up" title="API Reference" href="api.html"/>
+        <link rel="next" title="Module: util" href="cesium.util.html"/>
+        <link rel="prev" title="Module: science_feature_tools" href="cesium.science_feature_tools.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cesium
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cesium.html"><code class="docutils literal"><span class="pre">cesium</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html">Module: <code class="docutils literal"><span class="pre">build_model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html">Module: <code class="docutils literal"><span class="pre">obs_feature_tools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_feature_tools.html">Module: <code class="docutils literal"><span class="pre">science_feature_tools</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Module: <code class="docutils literal"><span class="pre">science_features</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#amplitude">amplitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flux-percentile-ratio">flux_percentile_ratio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-fold2p-slope-percentile">get_fold2P_slope_percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-lomb-amplitude">get_lomb_amplitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-lomb-amplitude-ratio">get_lomb_amplitude_ratio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-lomb-frequency">get_lomb_frequency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-lomb-frequency-ratio">get_lomb_frequency_ratio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-lomb-lambda">get_lomb_lambda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-lomb-rel-phase">get_lomb_rel_phase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-lomb-signif">get_lomb_signif</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-lomb-signif-ratio">get_lomb_signif_ratio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-lomb-trend">get_lomb_trend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-lomb-varrat">get_lomb_varrat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-lomb-y-offset">get_lomb_y_offset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-max-delta-mags">get_max_delta_mags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-medperc90-2p-p">get_medperc90_2p_p</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-min-delta-mags">get_min_delta_mags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-model-phi1-phi2">get_model_phi1_phi2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-p2p-scatter-2praw">get_p2p_scatter_2praw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-p2p-scatter-over-mad">get_p2p_scatter_over_mad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-p2p-scatter-pfold-over-mad">get_p2p_scatter_pfold_over_mad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-p2p-ssqr-diff-over-var">get_p2p_ssqr_diff_over_var</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-qso-log-chi2-qsonu">get_qso_log_chi2_qsonu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-qso-log-chi2nunull-chi2nu">get_qso_log_chi2nuNULL_chi2nu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lomb-scargle-fast-period">lomb_scargle_fast_period</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lomb-scargle-model">lomb_scargle_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#max-slope">max_slope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maximum">maximum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#median">median</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#median-absolute-deviation">median_absolute_deviation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minimum">minimum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#num-alias">num_alias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#p2p-model">p2p_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#percent-amplitude">percent_amplitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#percent-beyond-1-std">percent_beyond_1_std</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#percent-close-to-median">percent_close_to_median</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#percent-difference-flux-percentile">percent_difference_flux_percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#period-folding">period_folding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#periodic-model">periodic_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qso-fit">qso_fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scatter-res-raw">scatter_res_raw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#skew">skew</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#std">std</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stetson-j">stetson_j</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stetson-k">stetson_k</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#weighted-average">weighted_average</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html">Module: <code class="docutils literal"><span class="pre">util</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">cesium</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="api.html">API Reference</a> &raquo;</li>
+      
+    <li>Module: <code class="docutils literal"><span class="pre">science_features</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cesium.science_features">
+<span id="module-science-features"></span><h1>Module: <code class="xref py py-mod docutils literal"><span class="pre">science_features</span></code><a class="headerlink" href="#module-cesium.science_features" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.amplitude" title="cesium.science_features.amplitude"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.amplitude</span></code></a>(x)</td>
+<td>Half the difference between the maximum and minimum magnitude.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.flux_percentile_ratio" title="cesium.science_features.flux_percentile_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.flux_percentile_ratio</span></code></a>(x,&nbsp;...)</td>
+<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.get_fold2P_slope_percentile" title="cesium.science_features.get_fold2P_slope_percentile"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_fold2P_slope_percentile</span></code></a>(...)</td>
+<td>Get alphath percentile of slopes of period-folded model.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.get_lomb_amplitude" title="cesium.science_features.get_lomb_amplitude"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_lomb_amplitude</span></code></a>(...)</td>
+<td>Get the amplitude of the jth harmonic of the ith frequency from a fitted Lomb-Scargle model.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.get_lomb_amplitude_ratio" title="cesium.science_features.get_lomb_amplitude_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_lomb_amplitude_ratio</span></code></a>(...)</td>
+<td>Get the ratio of the amplitudes of the first harmonic for the ith and first frequencies from a fitted Lomb-Scargle model.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.get_lomb_frequency" title="cesium.science_features.get_lomb_frequency"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_lomb_frequency</span></code></a>(...)</td>
+<td>Get the ith frequency from a fitted Lomb-Scargle model.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.get_lomb_frequency_ratio" title="cesium.science_features.get_lomb_frequency_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_lomb_frequency_ratio</span></code></a>(...)</td>
+<td>Get the ratio of the ith and first frequencies from a fitted Lomb-Scargle model.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.get_lomb_lambda" title="cesium.science_features.get_lomb_lambda"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_lomb_lambda</span></code></a>(...)</td>
+<td>Get the regularization parameter of a fitted Lomb-Scargle model.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.get_lomb_rel_phase" title="cesium.science_features.get_lomb_rel_phase"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_lomb_rel_phase</span></code></a>(...)</td>
+<td>Get the relative phase of the jth harmonic of the ith frequency from a fitted Lomb-Scargle model.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.get_lomb_signif" title="cesium.science_features.get_lomb_signif"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_lomb_signif</span></code></a>(...)</td>
+<td>Get the significance (in sigmas) of the first frequency from a fitted Lomb-Scargle model.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.get_lomb_signif_ratio" title="cesium.science_features.get_lomb_signif_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_lomb_signif_ratio</span></code></a>(...)</td>
+<td>Get the ratio of the significances (in sigmas) of the ith and first frequencies from a fitted Lomb-Scargle model.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.get_lomb_trend" title="cesium.science_features.get_lomb_trend"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_lomb_trend</span></code></a>(...)</td>
+<td>Get the linear trend of a fitted Lomb-Scargle model.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.get_lomb_varrat" title="cesium.science_features.get_lomb_varrat"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_lomb_varrat</span></code></a>(...)</td>
+<td>Get the fraction of the variance explained by the first frequency of a fitted Lomb-Scargle model.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.get_lomb_y_offset" title="cesium.science_features.get_lomb_y_offset"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_lomb_y_offset</span></code></a>(...)</td>
+<td>Get the y-intercept of a fitted Lomb-Scargle model.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.get_max_delta_mags" title="cesium.science_features.get_max_delta_mags"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_max_delta_mags</span></code></a>(model)</td>
+<td>Largest value minus second largest value of fitted Lomb Scargle model.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.get_medperc90_2p_p" title="cesium.science_features.get_medperc90_2p_p"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_medperc90_2p_p</span></code></a>(model)</td>
+<td>Get ratio of 90th percentiles of residuals for data folded by twice the estimated period and the estimated period, respectively.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.get_min_delta_mags" title="cesium.science_features.get_min_delta_mags"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_min_delta_mags</span></code></a>(model)</td>
+<td>Second smallest value minus smallest value of fitted Lomb Scargle model.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.get_model_phi1_phi2" title="cesium.science_features.get_model_phi1_phi2"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_model_phi1_phi2</span></code></a>(model)</td>
+<td>Ratio of distances between the second minimum and first maximum, and the second minimum and second maximum, of the fitted Lomb-Scargle model.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.get_p2p_scatter_2praw" title="cesium.science_features.get_p2p_scatter_2praw"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_p2p_scatter_2praw</span></code></a>(model)</td>
+<td>Get ratio of variability (sum of squared differences of consecutive values) of folded and unfolded models.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.get_p2p_scatter_over_mad" title="cesium.science_features.get_p2p_scatter_over_mad"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_p2p_scatter_over_mad</span></code></a>(model)</td>
+<td>Get ratio of variability of folded and unfolded models.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.get_p2p_scatter_pfold_over_mad" title="cesium.science_features.get_p2p_scatter_pfold_over_mad"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_p2p_scatter_pfold_over_mad</span></code></a>(model)</td>
+<td>Get ratio of median of period-folded data over median absolute deviation of observed values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.get_p2p_ssqr_diff_over_var" title="cesium.science_features.get_p2p_ssqr_diff_over_var"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_p2p_ssqr_diff_over_var</span></code></a>(model)</td>
+<td>Get sum of squared differences of consecutive values as a fraction of the variance of the data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.get_qso_log_chi2_qsonu" title="cesium.science_features.get_qso_log_chi2_qsonu"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_qso_log_chi2_qsonu</span></code></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.get_qso_log_chi2nuNULL_chi2nu" title="cesium.science_features.get_qso_log_chi2nuNULL_chi2nu"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.get_qso_log_chi2nuNULL_chi2nu</span></code></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.lomb_scargle_fast_period" title="cesium.science_features.lomb_scargle_fast_period"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.lomb_scargle_fast_period</span></code></a>(t,&nbsp;m,&nbsp;e)</td>
+<td>Fits a simple sinuosidal model</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.lomb_scargle_model" title="cesium.science_features.lomb_scargle_model"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.lomb_scargle_model</span></code></a>(...)</td>
+<td>Simultaneous fit of a sum of sinusoids by weighted least squares:</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.max_slope" title="cesium.science_features.max_slope"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.max_slope</span></code></a>(t,&nbsp;x)</td>
+<td>Compute the largest rate of change in the observed data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.maximum" title="cesium.science_features.maximum"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.maximum</span></code></a>(x)</td>
+<td>Maximum observed value.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.median" title="cesium.science_features.median"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.median</span></code></a>(x)</td>
+<td>Median of observed values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.median_absolute_deviation" title="cesium.science_features.median_absolute_deviation"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.median_absolute_deviation</span></code></a>(x)</td>
+<td>Median absolute deviation (from the median) of the observed values.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.minimum" title="cesium.science_features.minimum"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.minimum</span></code></a>(x)</td>
+<td>Minimum observed value.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.num_alias" title="cesium.science_features.num_alias"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.num_alias</span></code></a>(lomb_model)</td>
+<td>Here we check for &#8220;1-day&#8221; aliases in ASAS / Deboss sources.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.p2p_model" title="cesium.science_features.p2p_model"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.p2p_model</span></code></a>(x,&nbsp;y,&nbsp;...)</td>
+<td>Compute features that compare the residuals of data folded by estimated period from Lomb-Scargle model with residuals folded by twice the estimated period.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.percent_amplitude" title="cesium.science_features.percent_amplitude"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.percent_amplitude</span></code></a>(x)</td>
+<td>Returns the largest distance from the median value, measured as a percentage of the median.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.percent_beyond_1_std" title="cesium.science_features.percent_beyond_1_std"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.percent_beyond_1_std</span></code></a>(x,&nbsp;e)</td>
+<td>Percentage of values more than 1 std.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.percent_close_to_median" title="cesium.science_features.percent_close_to_median"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.percent_close_to_median</span></code></a>(x)</td>
+<td>Percentage of values within window_frac*(max(x)-min(x)) of median.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.percent_difference_flux_percentile" title="cesium.science_features.percent_difference_flux_percentile"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.percent_difference_flux_percentile</span></code></a>(x)</td>
+<td>Difference between the 95th and 5th percentiles of the data, expressed as a percentage of the median value.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.period_folding" title="cesium.science_features.period_folding"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.period_folding</span></code></a>(x,&nbsp;y,&nbsp;...)</td>
+<td>This section is used to calculate Dubath (10.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.periodic_model" title="cesium.science_features.periodic_model"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.periodic_model</span></code></a>(...)</td>
+<td>Compute features related to the extreme points of the fitted Lomb Scargle model.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.qso_fit" title="cesium.science_features.qso_fit"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.qso_fit</span></code></a>(time,&nbsp;data,&nbsp;...)</td>
+<td>Best-fit qso model determined for Sesar Strip82, ugriz-bands (default r).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.scatter_res_raw" title="cesium.science_features.scatter_res_raw"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.scatter_res_raw</span></code></a>(t,&nbsp;...)</td>
+<td>From arXiv 1101_2406v1 Dubath 20110112 paper.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.skew" title="cesium.science_features.skew"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.skew</span></code></a>(x)</td>
+<td>Skewness of a dataset.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.std" title="cesium.science_features.std"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.std</span></code></a>(x)</td>
+<td>Standard deviation of observed values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.stetson_j" title="cesium.science_features.stetson_j"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.stetson_j</span></code></a>(x[,&nbsp;y,&nbsp;dx,&nbsp;dy])</td>
+<td>Robust covariance statistic between pairs of observations x,y whose uncertainties are dx,dy.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.science_features.stetson_k" title="cesium.science_features.stetson_k"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.stetson_k</span></code></a>(x[,&nbsp;dx])</td>
+<td>A robust kurtosis statistic.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.science_features.weighted_average" title="cesium.science_features.weighted_average"><code class="xref py py-obj docutils literal"><span class="pre">cesium.science_features.weighted_average</span></code></a>(x,&nbsp;e)</td>
+<td>Arithmetic mean of observed values, weighted by measurement errors.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="amplitude">
+<h2>amplitude<a class="headerlink" href="#amplitude" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.amplitude">
+<code class="descclassname">cesium.science_features.</code><code class="descname">amplitude</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.amplitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Half the difference between the maximum and minimum magnitude.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="flux-percentile-ratio">
+<h2>flux_percentile_ratio<a class="headerlink" href="#flux-percentile-ratio" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.flux_percentile_ratio">
+<code class="descclassname">cesium.science_features.</code><code class="descname">flux_percentile_ratio</code><span class="sig-paren">(</span><em>x</em>, <em>percentile_range</em>, <em>base=10.0</em>, <em>exponent=-0.4</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.flux_percentile_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>A ratio of ((50+x) flux percentile - (50-x) flux percentile) /
+(95 flux percentile - 5 flux percentile), where x = percentile_range/2.</p>
+<p>Assumes data is log-scaled; by default we assume inputs are scaled as
+x=10^(-0.4*y), corresponding to units of magnitudes. Computations are
+performed on the corresponding linear-scale values.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-fold2p-slope-percentile">
+<h2>get_fold2P_slope_percentile<a class="headerlink" href="#get-fold2p-slope-percentile" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_fold2P_slope_percentile">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_fold2P_slope_percentile</code><span class="sig-paren">(</span><em>model</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_fold2P_slope_percentile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get alphath percentile of slopes of period-folded model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-lomb-amplitude">
+<h2>get_lomb_amplitude<a class="headerlink" href="#get-lomb-amplitude" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_lomb_amplitude">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_lomb_amplitude</code><span class="sig-paren">(</span><em>lomb_model</em>, <em>i</em>, <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_lomb_amplitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the amplitude of the jth harmonic of the ith frequency from a fitted
+Lomb-Scargle model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-lomb-amplitude-ratio">
+<h2>get_lomb_amplitude_ratio<a class="headerlink" href="#get-lomb-amplitude-ratio" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_lomb_amplitude_ratio">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_lomb_amplitude_ratio</code><span class="sig-paren">(</span><em>lomb_model</em>, <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_lomb_amplitude_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the ratio of the amplitudes of the first harmonic for the ith and first
+frequencies from a fitted Lomb-Scargle model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-lomb-frequency">
+<h2>get_lomb_frequency<a class="headerlink" href="#get-lomb-frequency" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_lomb_frequency">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_lomb_frequency</code><span class="sig-paren">(</span><em>lomb_model</em>, <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_lomb_frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the ith frequency from a fitted Lomb-Scargle model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-lomb-frequency-ratio">
+<h2>get_lomb_frequency_ratio<a class="headerlink" href="#get-lomb-frequency-ratio" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_lomb_frequency_ratio">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_lomb_frequency_ratio</code><span class="sig-paren">(</span><em>lomb_model</em>, <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_lomb_frequency_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the ratio of the ith and first frequencies from a fitted Lomb-Scargle
+model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-lomb-lambda">
+<h2>get_lomb_lambda<a class="headerlink" href="#get-lomb-lambda" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_lomb_lambda">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_lomb_lambda</code><span class="sig-paren">(</span><em>lomb_model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_lomb_lambda" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the regularization parameter of a fitted Lomb-Scargle model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-lomb-rel-phase">
+<h2>get_lomb_rel_phase<a class="headerlink" href="#get-lomb-rel-phase" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_lomb_rel_phase">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_lomb_rel_phase</code><span class="sig-paren">(</span><em>lomb_model</em>, <em>i</em>, <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_lomb_rel_phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the relative phase of the jth harmonic of the ith frequency from a
+fitted Lomb-Scargle model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-lomb-signif">
+<h2>get_lomb_signif<a class="headerlink" href="#get-lomb-signif" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_lomb_signif">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_lomb_signif</code><span class="sig-paren">(</span><em>lomb_model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_lomb_signif" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the significance (in sigmas) of the first frequency from a fitted
+Lomb-Scargle model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-lomb-signif-ratio">
+<h2>get_lomb_signif_ratio<a class="headerlink" href="#get-lomb-signif-ratio" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_lomb_signif_ratio">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_lomb_signif_ratio</code><span class="sig-paren">(</span><em>lomb_model</em>, <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_lomb_signif_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the ratio of the significances (in sigmas) of the ith and first
+frequencies from a fitted Lomb-Scargle model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-lomb-trend">
+<h2>get_lomb_trend<a class="headerlink" href="#get-lomb-trend" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_lomb_trend">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_lomb_trend</code><span class="sig-paren">(</span><em>lomb_model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_lomb_trend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the linear trend of a fitted Lomb-Scargle model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-lomb-varrat">
+<h2>get_lomb_varrat<a class="headerlink" href="#get-lomb-varrat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_lomb_varrat">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_lomb_varrat</code><span class="sig-paren">(</span><em>lomb_model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_lomb_varrat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fraction of the variance explained by the first frequency of a
+fitted Lomb-Scargle model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-lomb-y-offset">
+<h2>get_lomb_y_offset<a class="headerlink" href="#get-lomb-y-offset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_lomb_y_offset">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_lomb_y_offset</code><span class="sig-paren">(</span><em>lomb_model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_lomb_y_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the y-intercept of a fitted Lomb-Scargle model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-max-delta-mags">
+<h2>get_max_delta_mags<a class="headerlink" href="#get-max-delta-mags" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_max_delta_mags">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_max_delta_mags</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_max_delta_mags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Largest value minus second largest value of fitted Lomb Scargle model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-medperc90-2p-p">
+<h2>get_medperc90_2p_p<a class="headerlink" href="#get-medperc90-2p-p" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_medperc90_2p_p">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_medperc90_2p_p</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_medperc90_2p_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ratio of 90th percentiles of residuals for data folded by twice the
+estimated period and the estimated period, respectively.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-min-delta-mags">
+<h2>get_min_delta_mags<a class="headerlink" href="#get-min-delta-mags" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_min_delta_mags">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_min_delta_mags</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_min_delta_mags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Second smallest value minus smallest value of fitted Lomb Scargle model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-model-phi1-phi2">
+<h2>get_model_phi1_phi2<a class="headerlink" href="#get-model-phi1-phi2" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_model_phi1_phi2">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_model_phi1_phi2</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_model_phi1_phi2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ratio of distances between the second minimum and first maximum, and the
+second minimum and second maximum, of the fitted Lomb-Scargle model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-p2p-scatter-2praw">
+<h2>get_p2p_scatter_2praw<a class="headerlink" href="#get-p2p-scatter-2praw" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_p2p_scatter_2praw">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_p2p_scatter_2praw</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_p2p_scatter_2praw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ratio of variability (sum of squared differences of consecutive
+values) of folded and unfolded models.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-p2p-scatter-over-mad">
+<h2>get_p2p_scatter_over_mad<a class="headerlink" href="#get-p2p-scatter-over-mad" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_p2p_scatter_over_mad">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_p2p_scatter_over_mad</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_p2p_scatter_over_mad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ratio of variability of folded and unfolded models.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-p2p-scatter-pfold-over-mad">
+<h2>get_p2p_scatter_pfold_over_mad<a class="headerlink" href="#get-p2p-scatter-pfold-over-mad" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_p2p_scatter_pfold_over_mad">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_p2p_scatter_pfold_over_mad</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_p2p_scatter_pfold_over_mad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ratio of median of period-folded data over median absolute
+deviation of observed values.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-p2p-ssqr-diff-over-var">
+<h2>get_p2p_ssqr_diff_over_var<a class="headerlink" href="#get-p2p-ssqr-diff-over-var" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_p2p_ssqr_diff_over_var">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_p2p_ssqr_diff_over_var</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_p2p_ssqr_diff_over_var" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get sum of squared differences of consecutive values as a fraction of the
+variance of the data.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-qso-log-chi2-qsonu">
+<h2>get_qso_log_chi2_qsonu<a class="headerlink" href="#get-qso-log-chi2-qsonu" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_qso_log_chi2_qsonu">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_qso_log_chi2_qsonu</code><span class="sig-paren">(</span><em>qso_model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_qso_log_chi2_qsonu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="get-qso-log-chi2nunull-chi2nu">
+<h2>get_qso_log_chi2nuNULL_chi2nu<a class="headerlink" href="#get-qso-log-chi2nunull-chi2nu" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.get_qso_log_chi2nuNULL_chi2nu">
+<code class="descclassname">cesium.science_features.</code><code class="descname">get_qso_log_chi2nuNULL_chi2nu</code><span class="sig-paren">(</span><em>qso_model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.get_qso_log_chi2nuNULL_chi2nu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="lomb-scargle-fast-period">
+<h2>lomb_scargle_fast_period<a class="headerlink" href="#lomb-scargle-fast-period" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.lomb_scargle_fast_period">
+<code class="descclassname">cesium.science_features.</code><code class="descname">lomb_scargle_fast_period</code><span class="sig-paren">(</span><em>t</em>, <em>m</em>, <em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.lomb_scargle_fast_period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits a simple sinuosidal model</p>
+<blockquote>
+<div>y(t) = A sin(2*pi*w*t + phi) + c</div></blockquote>
+<p>and returns the estimated period 1/w. Much faster than fitting the
+full multi-frequency model used by <cite>science_features.lomb_scargle</cite>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="lomb-scargle-model">
+<h2>lomb_scargle_model<a class="headerlink" href="#lomb-scargle-model" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.lomb_scargle_model">
+<code class="descclassname">cesium.science_features.</code><code class="descname">lomb_scargle_model</code><span class="sig-paren">(</span><em>time</em>, <em>signal</em>, <em>error</em>, <em>sys_err=0.05</em>, <em>nharm=8</em>, <em>nfreq=3</em>, <em>tone_control=5.0</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.lomb_scargle_model" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Simultaneous fit of a sum of sinusoids by weighted least squares:</dt>
+<dd>y(t) = Sum_k Ck*t^k + Sum_i Sum_j A_ij sin(2*pi*j*fi*(t-t0)+phi_j),
+i=[1,nfreq], j=[1,nharm]</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>time</strong> : array_like</p>
+<blockquote>
+<div><p>Array containing time values.</p>
+</div></blockquote>
+<p><strong>signal</strong> : array_like</p>
+<blockquote>
+<div><p>Array containing data values.</p>
+</div></blockquote>
+<p><strong>error</strong> : array_like</p>
+<blockquote>
+<div><p>Array containing measurement error values.</p>
+</div></blockquote>
+<p><strong>nharm</strong> : int</p>
+<blockquote>
+<div><p>Number of harmonics to fit for each frequency.</p>
+</div></blockquote>
+<p><strong>nfreq</strong> : int</p>
+<blockquote>
+<div><p>Number of frequencies to fit.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dict</p>
+<blockquote class="last">
+<div><p>Dictionary containing fitted parameter values. Parameters specific to
+a specific fitted frequency are stored in a list of dicts at
+model_dict[&#8216;freq_fits&#8217;], each of which contains the output of
+fit_lomb_scargle(...)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="max-slope">
+<h2>max_slope<a class="headerlink" href="#max-slope" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.max_slope">
+<code class="descclassname">cesium.science_features.</code><code class="descname">max_slope</code><span class="sig-paren">(</span><em>t</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.max_slope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the largest rate of change in the observed data.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="maximum">
+<h2>maximum<a class="headerlink" href="#maximum" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.maximum">
+<code class="descclassname">cesium.science_features.</code><code class="descname">maximum</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.maximum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum observed value.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="median">
+<h2>median<a class="headerlink" href="#median" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.median">
+<code class="descclassname">cesium.science_features.</code><code class="descname">median</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.median" title="Permalink to this definition">¶</a></dt>
+<dd><p>Median of observed values.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="median-absolute-deviation">
+<h2>median_absolute_deviation<a class="headerlink" href="#median-absolute-deviation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.median_absolute_deviation">
+<code class="descclassname">cesium.science_features.</code><code class="descname">median_absolute_deviation</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.median_absolute_deviation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Median absolute deviation (from the median) of the observed values.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="minimum">
+<h2>minimum<a class="headerlink" href="#minimum" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.minimum">
+<code class="descclassname">cesium.science_features.</code><code class="descname">minimum</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.minimum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum observed value.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="num-alias">
+<h2>num_alias<a class="headerlink" href="#num-alias" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.num_alias">
+<code class="descclassname">cesium.science_features.</code><code class="descname">num_alias</code><span class="sig-paren">(</span><em>lomb_model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.num_alias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Here we check for &#8220;1-day&#8221; aliases in ASAS / Deboss sources.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="p2p-model">
+<h2>p2p_model<a class="headerlink" href="#p2p-model" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.p2p_model">
+<code class="descclassname">cesium.science_features.</code><code class="descname">p2p_model</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>frequency</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.p2p_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute features that compare the residuals of data folded by estimated
+period from Lomb-Scargle model with residuals folded by twice the estimated
+period.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="percent-amplitude">
+<h2>percent_amplitude<a class="headerlink" href="#percent-amplitude" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.percent_amplitude">
+<code class="descclassname">cesium.science_features.</code><code class="descname">percent_amplitude</code><span class="sig-paren">(</span><em>x</em>, <em>base=10.0</em>, <em>exponent=-0.4</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.percent_amplitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the largest distance from the median value, measured
+as a percentage of the median.</p>
+<p>Assumes data is log-scaled; by default we assume inputs are scaled as
+x=10^(-0.4*y), corresponding to units of magnitudes. Computations are
+performed on the corresponding linear-scale values.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="percent-beyond-1-std">
+<h2>percent_beyond_1_std<a class="headerlink" href="#percent-beyond-1-std" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.percent_beyond_1_std">
+<code class="descclassname">cesium.science_features.</code><code class="descname">percent_beyond_1_std</code><span class="sig-paren">(</span><em>x</em>, <em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.percent_beyond_1_std" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentage of values more than 1 std. dev. from the weighted average.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="percent-close-to-median">
+<h2>percent_close_to_median<a class="headerlink" href="#percent-close-to-median" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.percent_close_to_median">
+<code class="descclassname">cesium.science_features.</code><code class="descname">percent_close_to_median</code><span class="sig-paren">(</span><em>x</em>, <em>window_frac=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.percent_close_to_median" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentage of values within window_frac*(max(x)-min(x)) of median.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="percent-difference-flux-percentile">
+<h2>percent_difference_flux_percentile<a class="headerlink" href="#percent-difference-flux-percentile" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.percent_difference_flux_percentile">
+<code class="descclassname">cesium.science_features.</code><code class="descname">percent_difference_flux_percentile</code><span class="sig-paren">(</span><em>x</em>, <em>base=10.0</em>, <em>exponent=-0.4</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.percent_difference_flux_percentile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Difference between the 95th and 5th percentiles of the data, expressed
+as a percentage of the median value.
+See Eyer (2005) arXiv:astro-ph/0511458v1, Evans &amp; Belokurov (2005) (there
+the 98th and 2nd percentiles are used).</p>
+<p>Assumes data is log-scaled; by default we assume inputs are scaled as
+x=10^(-0.4*y), corresponding to units of magnitudes. Computations are
+performed on the corresponding linear-scale values.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="period-folding">
+<h2>period_folding<a class="headerlink" href="#period-folding" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.period_folding">
+<code class="descclassname">cesium.science_features.</code><code class="descname">period_folding</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>dy</em>, <em>lomb_model</em>, <em>sys_err=0.05</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.period_folding" title="Permalink to this definition">¶</a></dt>
+<dd><p>This section is used to calculate Dubath (10. Percentile90:2P/P),
+which requires regenerating a model using 2P where P is the original found period</p>
+<p>NOTE: this essentially runs everything a second time, so makes feature
+generation take roughly twice as long.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="periodic-model">
+<h2>periodic_model<a class="headerlink" href="#periodic-model" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.periodic_model">
+<code class="descclassname">cesium.science_features.</code><code class="descname">periodic_model</code><span class="sig-paren">(</span><em>lomb_model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.periodic_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute features related to the extreme points of the fitted Lomb Scargle
+model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="qso-fit">
+<h2>qso_fit<a class="headerlink" href="#qso-fit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.qso_fit">
+<code class="descclassname">cesium.science_features.</code><code class="descname">qso_fit</code><span class="sig-paren">(</span><em>time</em>, <em>data</em>, <em>error</em>, <em>filter='g'</em>, <em>mag0=19.0</em>, <em>sys_err=0.0</em>, <em>return_model=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.qso_fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Best-fit qso model determined for Sesar Strip82, ugriz-bands (default r).
+See additional notes for underlying code qso_engine.</p>
+<dl class="docutils">
+<dt>Input:</dt>
+<dd>time - measurement times [days]
+data - measured magnitudes in single filter (also specified)
+error - uncertainty in measured magnitudes</dd>
+<dt>Output:</dt>
+<dd><p class="first">chi^2/nu - classical variability measure
+chi^2_qso/nu - fit statistic
+chi^2_qso/nu_NULL - expected fit statistic for non-qso variable</p>
+<p>signif_qso - significance chi^2/nu&lt;chi^2/nu_NULL (rule out false alarm)
+signif_not_qso - significance chi^2/nu&gt;1 (rule out qso)
+signif_vary - significance that source is variable at all 
+class - source type (ambiguous, not_qso, qso)</p>
+<p class="last">model - time series prediction for each datum given all others (iff return_model==True)
+dmodel - model uncertainty, including uncertainty in data</p>
+</dd>
+</dl>
+<p>Note on use (i.e., how class is defined):</p>
+<blockquote>
+<div><ol class="arabic simple" start="0">
+<li>signif_vary &lt; 3: ambiguous, else</li>
+<li>signif_qso &gt; 3: qso, else</li>
+<li>signif_not_qso &gt; 3: not_qso</li>
+</ol>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="scatter-res-raw">
+<h2>scatter_res_raw<a class="headerlink" href="#scatter-res-raw" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.scatter_res_raw">
+<code class="descclassname">cesium.science_features.</code><code class="descname">scatter_res_raw</code><span class="sig-paren">(</span><em>t</em>, <em>m</em>, <em>e</em>, <em>lomb_model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.scatter_res_raw" title="Permalink to this definition">¶</a></dt>
+<dd><p>From arXiv 1101_2406v1 Dubath 20110112 paper.</p>
+<p>Scatter: res/raw
+Median absolute deviation (MAD) of the residuals (obtained by subtracting
+model values from the raw light curve) divided by the MAD of the raw
+light-curve values around the median.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="skew">
+<h2>skew<a class="headerlink" href="#skew" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.skew">
+<code class="descclassname">cesium.science_features.</code><code class="descname">skew</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.skew" title="Permalink to this definition">¶</a></dt>
+<dd><p>Skewness of a dataset. Approximately 0 for Gaussian data.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="std">
+<h2>std<a class="headerlink" href="#std" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.std">
+<code class="descclassname">cesium.science_features.</code><code class="descname">std</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.std" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard deviation of observed values.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="stetson-j">
+<h2>stetson_j<a class="headerlink" href="#stetson-j" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.stetson_j">
+<code class="descclassname">cesium.science_features.</code><code class="descname">stetson_j</code><span class="sig-paren">(</span><em>x</em>, <em>y=[]</em>, <em>dx=0.1</em>, <em>dy=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.stetson_j" title="Permalink to this definition">¶</a></dt>
+<dd><p>Robust covariance statistic between pairs of observations x,y
+whose uncertainties are dx,dy. If y is not given, calculates a robust
+variance for x.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="stetson-k">
+<h2>stetson_k<a class="headerlink" href="#stetson-k" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.stetson_k">
+<code class="descclassname">cesium.science_features.</code><code class="descname">stetson_k</code><span class="sig-paren">(</span><em>x</em>, <em>dx=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.stetson_k" title="Permalink to this definition">¶</a></dt>
+<dd><p>A robust kurtosis statistic.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="weighted-average">
+<h2>weighted_average<a class="headerlink" href="#weighted-average" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.science_features.weighted_average">
+<code class="descclassname">cesium.science_features.</code><code class="descname">weighted_average</code><span class="sig-paren">(</span><em>x</em>, <em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.science_features.weighted_average" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arithmetic mean of observed values, weighted by measurement errors.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cesium.util.html" class="btn btn-neutral float-right" title="Module: util" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cesium.science_feature_tools.html" class="btn btn-neutral" title="Module: science_feature_tools" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, The cesium Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

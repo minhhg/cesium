@@ -1,0 +1,17 @@
+.. AUTO-GENERATED FILE -- DO NOT EDIT!
+
+Module: :mod:`science_feature_tools`
+====================================
+.. automodule:: cesium.science_feature_tools
+
+.. currentmodule:: cesium.science_feature_tools
+.. autosummary::
+
+   cesium.science_feature_tools.generate_science_features
+
+
+generate_science_features
+-------------------------
+
+.. autofunction:: cesium.science_feature_tools.generate_science_features
+

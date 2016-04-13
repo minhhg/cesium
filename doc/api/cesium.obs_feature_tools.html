@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Module: obs_feature_tools &mdash; cesium 0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/output_cells.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="cesium 0.2 documentation" href="../index.html"/>
+        <link rel="up" title="API Reference" href="api.html"/>
+        <link rel="next" title="Module: science_feature_tools" href="cesium.science_feature_tools.html"/>
+        <link rel="prev" title="Module: build_model" href="cesium.build_model.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cesium
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cesium.html"><code class="docutils literal"><span class="pre">cesium</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html">Module: <code class="docutils literal"><span class="pre">build_model</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Module: <code class="docutils literal"><span class="pre">obs_feature_tools</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cad-prob">cad_prob</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delta-t-hist">delta_t_hist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-to-single-step">double_to_single_step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#find-sorted-peaks">find_sorted_peaks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-obs-features">generate_obs_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#normalize-hist">normalize_hist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#peak-bin">peak_bin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#peak-ratio">peak_ratio</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_feature_tools.html">Module: <code class="docutils literal"><span class="pre">science_feature_tools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html">Module: <code class="docutils literal"><span class="pre">science_features</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html">Module: <code class="docutils literal"><span class="pre">util</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">cesium</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="api.html">API Reference</a> &raquo;</li>
+      
+    <li>Module: <code class="docutils literal"><span class="pre">obs_feature_tools</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cesium.obs_feature_tools">
+<span id="module-obs-feature-tools"></span><h1>Module: <code class="xref py py-mod docutils literal"><span class="pre">obs_feature_tools</span></code><a class="headerlink" href="#module-cesium.obs_feature_tools" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.obs_feature_tools.cad_prob" title="cesium.obs_feature_tools.cad_prob"><code class="xref py py-obj docutils literal"><span class="pre">cesium.obs_feature_tools.cad_prob</span></code></a>(cads,&nbsp;time)</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.obs_feature_tools.delta_t_hist" title="cesium.obs_feature_tools.delta_t_hist"><code class="xref py py-obj docutils literal"><span class="pre">cesium.obs_feature_tools.delta_t_hist</span></code></a>(t[,&nbsp;nbins])</td>
+<td>Build histogram of all possible delta_t&#8217;s without storing every value</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.obs_feature_tools.double_to_single_step" title="cesium.obs_feature_tools.double_to_single_step"><code class="xref py py-obj docutils literal"><span class="pre">cesium.obs_feature_tools.double_to_single_step</span></code></a>(cads)</td>
+<td>Ratios t[i+2] - t[i] / (t[i+2] - t[i+1]).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.obs_feature_tools.find_sorted_peaks" title="cesium.obs_feature_tools.find_sorted_peaks"><code class="xref py py-obj docutils literal"><span class="pre">cesium.obs_feature_tools.find_sorted_peaks</span></code></a>(x)</td>
+<td>Find peaks, i.e.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.obs_feature_tools.generate_obs_features" title="cesium.obs_feature_tools.generate_obs_features"><code class="xref py py-obj docutils literal"><span class="pre">cesium.obs_feature_tools.generate_obs_features</span></code></a>(t,&nbsp;m,&nbsp;e)</td>
+<td>Generate features dict from given time-series data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.obs_feature_tools.normalize_hist" title="cesium.obs_feature_tools.normalize_hist"><code class="xref py py-obj docutils literal"><span class="pre">cesium.obs_feature_tools.normalize_hist</span></code></a>(...)</td>
+<td>Normalize histogram such that integral from t_min to t_max equals 1.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.obs_feature_tools.peak_bin" title="cesium.obs_feature_tools.peak_bin"><code class="xref py py-obj docutils literal"><span class="pre">cesium.obs_feature_tools.peak_bin</span></code></a>(peaks,&nbsp;i)</td>
+<td>Return the (bin) index of the ith largest peak.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.obs_feature_tools.peak_ratio" title="cesium.obs_feature_tools.peak_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.obs_feature_tools.peak_ratio</span></code></a>(peaks,&nbsp;i,&nbsp;j)</td>
+<td>Compute the ratio of the values of the ith and jth largest peaks.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="cad-prob">
+<h2>cad_prob<a class="headerlink" href="#cad-prob" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.obs_feature_tools.cad_prob">
+<code class="descclassname">cesium.obs_feature_tools.</code><code class="descname">cad_prob</code><span class="sig-paren">(</span><em>cads</em>, <em>time</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.obs_feature_tools.cad_prob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the observed distribution of time lags <cite>cads</cite>, compute the probability
+that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="delta-t-hist">
+<h2>delta_t_hist<a class="headerlink" href="#delta-t-hist" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.obs_feature_tools.delta_t_hist">
+<code class="descclassname">cesium.obs_feature_tools.</code><code class="descname">delta_t_hist</code><span class="sig-paren">(</span><em>t</em>, <em>nbins=50</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.obs_feature_tools.delta_t_hist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build histogram of all possible delta_t&#8217;s without storing every value</p>
+</dd></dl>
+
+</div>
+<div class="section" id="double-to-single-step">
+<h2>double_to_single_step<a class="headerlink" href="#double-to-single-step" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.obs_feature_tools.double_to_single_step">
+<code class="descclassname">cesium.obs_feature_tools.</code><code class="descname">double_to_single_step</code><span class="sig-paren">(</span><em>cads</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.obs_feature_tools.double_to_single_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ratios t[i+2] - t[i] / (t[i+2] - t[i+1]).</p>
+</dd></dl>
+
+</div>
+<div class="section" id="find-sorted-peaks">
+<h2>find_sorted_peaks<a class="headerlink" href="#find-sorted-peaks" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.obs_feature_tools.find_sorted_peaks">
+<code class="descclassname">cesium.obs_feature_tools.</code><code class="descname">find_sorted_peaks</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.obs_feature_tools.find_sorted_peaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find peaks, i.e. local maxima, of an array. Interior points are peaks if
+they are greater than both their neighbors, and edge points are peaks if
+they are greater than their only neighbor. In the case of ties, we
+(arbitrarily) choose the first index in the sequence of equal values as the
+peak.</p>
+<p>Returns a list of tuples (i, x[i]) of peak indices i and values x[i],
+sorted in decreasing order by peak value.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="generate-obs-features">
+<h2>generate_obs_features<a class="headerlink" href="#generate-obs-features" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.obs_feature_tools.generate_obs_features">
+<code class="descclassname">cesium.obs_feature_tools.</code><code class="descname">generate_obs_features</code><span class="sig-paren">(</span><em>t, m, e, features_to_compute=['n_epochs', 'avg_err', 'med_err', 'std_err', 'total_time', 'avgt', 'cads_std', 'avg_mag', 'cads_avg', 'cads_med', 'cad_probs_1', 'cad_probs_10', 'cad_probs_20', 'cad_probs_30', 'cad_probs_40', 'cad_probs_50', 'cad_probs_100', 'cad_probs_500', 'cad_probs_1000', 'cad_probs_5000', 'cad_probs_10000', 'cad_probs_50000', 'cad_probs_100000', 'cad_probs_500000', 'cad_probs_1000000', 'cad_probs_5000000', 'cad_probs_10000000', 'med_double_to_single_step', 'avg_double_to_single_step', 'std_double_to_single_step', 'all_times_hist_peak_val', 'all_times_hist_peak_bin', 'all_times_nhist_numpeaks', 'all_times_nhist_peak_val', 'all_times_nhist_peak_1_to_2', 'all_times_nhist_peak_1_to_3', 'all_times_nhist_peak_2_to_3', 'all_times_nhist_peak_1_to_4', 'all_times_nhist_peak_2_to_4', 'all_times_nhist_peak_3_to_4', 'all_times_nhist_peak1_bin', 'all_times_nhist_peak2_bin', 'all_times_nhist_peak3_bin', 'all_times_nhist_peak4_bin']</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.obs_feature_tools.generate_obs_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate features dict from given time-series data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>t</strong> : array_like</p>
+<blockquote>
+<div><p>Array containing time values.</p>
+</div></blockquote>
+<p><strong>m</strong> : array_like</p>
+<blockquote>
+<div><p>Array containing data values.</p>
+</div></blockquote>
+<p><strong>e</strong> : array_like</p>
+<blockquote>
+<div><p>Array containing measurement error values.</p>
+</div></blockquote>
+<p><strong>features_to_compute</strong> : list</p>
+<blockquote>
+<div><p>Optional list containing names of desired features.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dict</p>
+<blockquote class="last">
+<div><p>Dictionary containing generated time series features.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="normalize-hist">
+<h2>normalize_hist<a class="headerlink" href="#normalize-hist" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.obs_feature_tools.normalize_hist">
+<code class="descclassname">cesium.obs_feature_tools.</code><code class="descname">normalize_hist</code><span class="sig-paren">(</span><em>hist</em>, <em>total_time</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.obs_feature_tools.normalize_hist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize histogram such that integral from t_min to t_max equals 1.
+cf. np.histogram(..., density=True).</p>
+</dd></dl>
+
+</div>
+<div class="section" id="peak-bin">
+<h2>peak_bin<a class="headerlink" href="#peak-bin" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.obs_feature_tools.peak_bin">
+<code class="descclassname">cesium.obs_feature_tools.</code><code class="descname">peak_bin</code><span class="sig-paren">(</span><em>peaks</em>, <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.obs_feature_tools.peak_bin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the (bin) index of the ith largest peak.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="peak-ratio">
+<h2>peak_ratio<a class="headerlink" href="#peak-ratio" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.obs_feature_tools.peak_ratio">
+<code class="descclassname">cesium.obs_feature_tools.</code><code class="descname">peak_ratio</code><span class="sig-paren">(</span><em>peaks</em>, <em>i</em>, <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.obs_feature_tools.peak_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the ratio of the values of the ith and jth largest peaks.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cesium.science_feature_tools.html" class="btn btn-neutral float-right" title="Module: science_feature_tools" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cesium.build_model.html" class="btn btn-neutral" title="Module: build_model" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, The cesium Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

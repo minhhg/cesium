@@ -1,0 +1,35 @@
+.. AUTO-GENERATED FILE -- DO NOT EDIT!
+
+Module: :mod:`build_model`
+==========================
+.. automodule:: cesium.build_model
+
+.. currentmodule:: cesium.build_model
+.. autosummary::
+
+   cesium.build_model.build_model_from_featureset
+   cesium.build_model.create_and_pickle_model
+   cesium.build_model.fit_model_optimize_hyperparams
+   cesium.build_model.rectangularize_featureset
+
+
+build_model_from_featureset
+---------------------------
+
+.. autofunction:: cesium.build_model.build_model_from_featureset
+
+create_and_pickle_model
+-----------------------
+
+.. autofunction:: cesium.build_model.create_and_pickle_model
+
+fit_model_optimize_hyperparams
+------------------------------
+
+.. autofunction:: cesium.build_model.fit_model_optimize_hyperparams
+
+rectangularize_featureset
+-------------------------
+
+.. autofunction:: cesium.build_model.rectangularize_featureset
+

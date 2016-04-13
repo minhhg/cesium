@@ -1,0 +1,13 @@
+.. AUTO-GENERATED FILE -- DO NOT EDIT!
+
+API Reference
+=============
+
+.. toctree::
+
+   cesium
+   cesium.build_model
+   cesium.obs_feature_tools
+   cesium.science_feature_tools
+   cesium.science_features
+   cesium.util
