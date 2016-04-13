@@ -15,6 +15,25 @@ pip install --retries 3 -q requests six python-dateutil nose nose-exclude mock
 section_end "install.base.requirements"
 
 
+section "install.hdf5.netcdf4"
+export HDF5_DIR=/home/travis/.local
+export PATH=$PATH:/home/travis/.local/bin
+wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.16.tar.gz
+tar -xzf hdf5-1.8.16.tar.gz
+(cd hdf5-1.8.16/ &&
+./configure --prefix=$HDF5_DIR --enable-shared --enable-hl &&
+make &&
+make install)
+
+wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.4.0.tar.gz
+tar -xzf netcdf-4.4.0.tar.gz
+(cd netcdf-4.4.0/ &&
+LDFLAGS=-L$HDF5_DIR/lib CPPFLAGS=-I$HDF5_DIR/include ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=$HDF5_DIR &&
+make &&
+make install)
+section_end "install.hdf5.netcdf4"
+
+
 section "install.cesium.requirements"
 
 # RabbitMQ (http://www.scotthelm.com/2013/11/27/rabbit-mq-and-erlang-and-ubuntu-oh-my.html)
