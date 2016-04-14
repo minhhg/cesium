@@ -22,13 +22,13 @@ TS_TARGET_PATHS = [pjoin(DATA_PATH, f) for f in
 
 def test_model_predictions():
     """Test inner model prediction function"""
-    fset = xr.open_dataset(pjoin(DATA_PATH, "test_featureset.nc"))
-    model = build_model.build_model_from_featureset(
-        fset, model_type='RandomForestClassifier')
-    preds = predict.model_predictions(fset, model)
-    assert(preds.shape[0] == len(fset.name))
-    assert(preds.shape[1] == len(np.unique(fset.target.values)))
-    assert(preds.values.dtype == np.dtype('float'))
+    with xr.open_dataset(pjoin(DATA_PATH, "test_featureset.nc")) as fset:
+        model = build_model.build_model_from_featureset(
+            fset, model_type='RandomForestClassifier')
+        preds = predict.model_predictions(fset, model)
+        assert(preds.shape[0] == len(fset.name))
+        assert(preds.shape[1] == len(np.unique(fset.target.values)))
+        assert(preds.values.dtype == np.dtype('float'))
 
 
 def test_predict_classification():
@@ -49,6 +49,7 @@ def test_predict_classification():
             for el in results['pred_results']:
                 assert(el[0] in [b'class1', b'class2', b'class3']
                        or el in [b'class1', b'class2', b'class3'])
+    fset.close()
 
 
 def test_predict_regression():
@@ -67,6 +68,7 @@ def test_predict_regression():
         for fname, results in pred_results_dict.items():
             for el in results['pred_results']:
                 assert(isinstance(el, float))
+    fset.close()
 
 
 def test_predict_optimized_model():
@@ -78,6 +80,7 @@ def test_predict_optimized_model():
     pred_results_dict = predict.predict_data_files(TS_TARGET_PATHS,
                                                    list(fset.data_vars), model,
                                                    custom_features_script=None)
+    fset.close()
     for fname, results in pred_results_dict.items():
         for el in results['pred_results']:
             print(el)

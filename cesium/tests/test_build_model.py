@@ -47,6 +47,7 @@ def test_build_model():
             raise ValueError("Unrecognized scikit-learn model type.")
         model_path = pjoin(TEMP_DIR, "test.pkl")
         build_model.create_and_pickle_model(fset, model_type, model_path)
+        fset.close()
         model = joblib.load(model_path)
         assert isinstance(model,
                           build_model.MODELS_TYPE_DICT[model_type])
@@ -59,6 +60,7 @@ def test_fit_existing_model():
     fset = xr.open_dataset(pjoin(DATA_PATH, "test_featureset.nc"))
     model = build_model.MODELS_TYPE_DICT['RandomForestClassifier']()
     model = build_model.build_model_from_featureset(fset, model)
+    fset.close()
     assert isinstance(model, RandomForestClassifier)
 
 
@@ -76,6 +78,7 @@ def test_fit_existing_model_optimize():
     model = build_model.build_model_from_featureset(fset, model, None,
                                                     model_options,
                                                     params_to_optimize)
+    fset.close()
     assert hasattr(model, "best_params_")
     assert hasattr(model, "predict_proba")
     assert isinstance(model, GridSearchCV)
@@ -97,6 +100,7 @@ def test_fit_optimize():
     model = build_model.fit_model_optimize_hyperparams(feature_df,
                                                        fset['target'], model,
                                                        params_to_optimize)
+    fset.close()
     assert hasattr(model, "best_params_")
     assert hasattr(model, "predict_proba")
     assert isinstance(model, GridSearchCV)

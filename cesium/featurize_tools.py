@@ -1,6 +1,7 @@
 import numpy as np
 import xarray as xr
 import dask.async
+from .featureset import Featureset
 from . import obs_feature_tools as oft
 from . import science_feature_tools as sft
 
@@ -113,4 +114,4 @@ def assemble_featureset(feature_dicts, targets=None, meta_feature_dicts=None,
         featureset.coords['name'] = ('name', np.array(names))
     if targets is not None:
         featureset.coords['target'] = ('name', np.array(targets))
-    return featureset
+    return Featureset(featureset)
